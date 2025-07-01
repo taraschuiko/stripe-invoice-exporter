@@ -28,11 +28,13 @@ async function downloadInvoices(year, month) {
       continue;
     }
 
-    console.dir(invoice, { depth: null });
-
     const url = invoice.invoice_pdf;
 
-    const filePath = `./invoices/${invoice.number || invoice.id}.pdf`;
+    const monthFolder = `${year}-${month.toString().padStart(2, '0')}`;
+    const monthPath = `./invoices/${monthFolder}`;
+    fs.mkdirSync(monthPath, { recursive: true });
+
+    const filePath = `${monthPath}/${invoice.number || invoice.id}.pdf`;
     const file = fs.createWriteStream(filePath);
 
     const download = (url, filePath, resolve, reject) => {

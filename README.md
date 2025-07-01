@@ -18,7 +18,7 @@ This tool downloads all Stripe invoices for a specified month and saves them as 
    ```
 3. Create a `.env` file in the root directory and add your Stripe secret key:
    ```env
-   STRIPE_SECRET_KEY=sk_test_...
+   STRIPE_SECRET_KEY=sk_live_...
    ```
 
 ## Usage
